@@ -8,6 +8,8 @@ public class Zombie : MonoBehaviour
 
     public GameObject zombie;
 
+    public Animator ZombieAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,19 @@ public class Zombie : MonoBehaviour
 
     void Dead()
     {
-        Destroy(zombie);
+
+        ZombieAnimator.Play("DieAnimation");
         
+    }
+
+
+    void Run()
+    {
+        ZombieAnimator.Play("RunAnimation");
+    }
+
+    void GoToPlayer()
+    {
+
     }
 }
