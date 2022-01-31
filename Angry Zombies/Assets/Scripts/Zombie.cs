@@ -1,47 +1,77 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
-    public static int livesOfZombie = 1;
+    public int livesOfZombie = 1;
 
-    public GameObject zombie;
+    public Player lives;
 
     public Animator ZombieAnimator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public NavMeshAgent zombie;
+    bool canFolow = true;
+    public Transform playerTransform;
 
+    public Collider colider;
+
+    public Collider zombieColider;
+
+
+
+    public AudioSource bite;
+    
+   
     // Update is called once per frame
     void Update()
     {
-      
-        if (livesOfZombie == 0)
+        if (lives.playerLives < 1)
         {
-        
-            Dead();
+            canFolow = false;
         }
+        
+         
+        if (livesOfZombie < 1)
+        {
+            ZombieAnimator.Play("DieAnimation");
+            canFolow = false;
+        }
+
+        
+
+        if (canFolow == true)
+        {
+            ZombieAnimator.Play("RunAnimation");
+            zombie.SetDestination(playerTransform.position);
+        }
+
     }
 
-    void Dead()
+    void OnTriggerStay(Collider colider)
     {
+        if (colider.tag == "Player" && lives.playerLives > 0 && livesOfZombie > 0)
+        {
+            canFolow = false;
+            ZombieAnimator.Play("Punch");
 
-        ZombieAnimator.Play("DieAnimation");
+
+        }
+
         
     }
 
-
-    void Run()
+    public void PunchEvent()
     {
-        ZombieAnimator.Play("RunAnimation");
+        lives.playerLives = lives.playerLives - 1;
+        canFolow = true;
+        bite.Play();
     }
-
-    void GoToPlayer()
+    
+    public void EndanimationEvent()
     {
-
+        canFolow = true;
     }
+    
 }
