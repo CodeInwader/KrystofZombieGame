@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":53.96048355102539,"y":2.8316571712493898,"z":-18.162029266357423},"rotation":{"x":0.05422813817858696,"y":-0.04573647677898407,"z":0.0026206637267023327,"w":0.9976456761360169},"size":1.8689831495285035,"orthographic":false}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":66.93384552001953,"y":-3.0387909412384035,"z":-15.026684761047364},"rotation":{"x":-0.17159873247146607,"y":-0.6958789229393005,"z":0.17730459570884705,"w":-0.6745148301124573},"size":14.521773338317871,"orthographic":false}
+>>>>>>> parent of 278b0c0 (Week 2)

@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
 
 public class Gun : MonoBehaviour
 {
 
+<<<<<<< HEAD
     public Transform gun1;
     public GameObject gunObject1;
     public AudioSource shoot1;
@@ -49,10 +49,16 @@ public class Gun : MonoBehaviour
 
         gunSelect = 1;
     }
+=======
+    public Transform gun;
+    public float range = 100f;
+
+>>>>>>> parent of 278b0c0 (Week 2)
 
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
         switch (gunSelect)
         {
             case 1:
@@ -185,6 +191,12 @@ public class Gun : MonoBehaviour
             }
         }
        
+=======
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            Shoot();
+        }
+>>>>>>> parent of 278b0c0 (Week 2)
     }
 
 
@@ -199,15 +211,21 @@ public class Gun : MonoBehaviour
     {
         RaycastHit hit;
 
+<<<<<<< HEAD
         shoot2.Play();
 
 
 
         if (Physics.Raycast(gun2.transform.position, gun2.transform.forward * -1, out hit /*, range*/))
+=======
+
+        if (Physics.Raycast(gun.transform.position, gun.transform.forward * -1, out hit, range))
+>>>>>>> parent of 278b0c0 (Week 2)
         {
 
             if (hit.transform.tag == "Zombie")
             {
+<<<<<<< HEAD
                 Zombie hitZombie = hit.transform.GetComponent<Zombie>();
                 Zombie zombieCollider = hit.collider.GetComponent<Zombie>();
 
@@ -229,9 +247,18 @@ public class Gun : MonoBehaviour
 
             Instantiate(impactefect, hit.point, Quaternion.LookRotation(hit.normal));
 
+=======
+              Zombie.livesOfZombie = Zombie.livesOfZombie - 1;
+                Debug.Log(hit.transform);
+
+            }
+            
+           
+>>>>>>> parent of 278b0c0 (Week 2)
         }
 
     }
+<<<<<<< HEAD
 
     void Gun3()
     {
@@ -270,4 +297,6 @@ public class Gun : MonoBehaviour
         }
     }
 
+=======
+>>>>>>> parent of 278b0c0 (Week 2)
 }

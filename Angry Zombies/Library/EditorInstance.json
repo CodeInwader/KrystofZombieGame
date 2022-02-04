@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
 	"process_id" : 12779,
+=======
+	"process_id" : 2521,
+>>>>>>> parent of 278b0c0 (Week 2)
 	"version" : "2019.4.34f1",
 	"app_path" : "/Applications/Unity/Unity.app",
 	"app_contents_path" : "/Applications/Unity/Unity.app/Contents"

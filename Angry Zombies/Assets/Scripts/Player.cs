@@ -7,7 +7,7 @@ using System.Linq;
 public class Player : MonoBehaviour
 {
     public Rigidbody rb;
-    public float speed = 5f;
+    public float speed = 15f;
 
     public Animator Animator;
 
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
 
        
         
-            int keysDown = 0;
+            var keysDown = 0;
             if (Input.GetKey(KeyCode.W))
                 keysDown++;
             if (Input.GetKey(KeyCode.A))
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
             
 
 
-            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D) && dead == false) // W D y > 0 && y < 2 && x > -2 && x < 0 Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D)
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D)) // W D y > 0 && y < 2 && x > -2 && x < 0 Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D)
             {
                 if (angle > 25 && angle < 65)
                 {
@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
 
             }
 
-            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) && dead == false) // W A y > 0 && y < 2 && x > 0 && x < 2 Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A)
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A)) // W A y > 0 && y < 2 && x > 0 && x < 2 Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A)
             {
                 if (angle > 294 && angle < 336)
                 {
@@ -182,7 +182,7 @@ public class Player : MonoBehaviour
 
             }
 
-            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A) && dead == false) // S A y > -2 && y < 0 && x > 0 && x < 2 Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A)
+            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A)) // S A y > -2 && y < 0 && x > 0 && x < 2 Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A)
             {
                 if (angle > 205 && angle < 245)
                 {
@@ -220,7 +220,7 @@ public class Player : MonoBehaviour
 
             }
 
-            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D) && dead == false) // S D y > -2 && y < 0 && x > -2 && x < 0 Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D)
+            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D)) // S D y > -2 && y < 0 && x > -2 && x < 0 Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D)
             {
                 if (angle > 115 && angle < 155)
                 {
@@ -266,7 +266,7 @@ public class Player : MonoBehaviour
 
 
 
-            if (Input.GetKey(KeyCode.W) && dead == false)//y > 0 && y < 2 && x < 1 && x > -1 
+            if (Input.GetKey(KeyCode.W))//y > 0 && y < 2 && x < 1 && x > -1 
             {
 
                 if (angle > 339 && angle < 361 || angle > 0.1 && angle < 20)
@@ -312,7 +312,7 @@ public class Player : MonoBehaviour
 
 
 
-            if (Input.GetKey(KeyCode.S) && dead == false)//y > -2 && y < 0 && x < 1 && x > -1 Input.GetKey(KeyCode.S)
+            if (Input.GetKey(KeyCode.S))//y > -2 && y < 0 && x < 1 && x > -1 Input.GetKey(KeyCode.S)
             {
                 if (angle > 339 && angle < 361 || angle > 0.1 && angle < 20)
                 {
@@ -350,7 +350,7 @@ public class Player : MonoBehaviour
 
             }
 
-            if (Input.GetKey(KeyCode.A) && dead == false)//x > 0 && x < 2 && y < 1 && y > -1 
+            if (Input.GetKey(KeyCode.A))//x > 0 && x < 2 && y < 1 && y > -1 
             {
                 if (angle > 250 && angle < 290)
                 {
@@ -388,7 +388,7 @@ public class Player : MonoBehaviour
 
             }
 
-            if (Input.GetKey(KeyCode.D) && dead == false) //x > - 2 && x < 0 && y < 1 && y > -1 Input.GetKey(KeyCode.D)
+            if (Input.GetKey(KeyCode.D)) //x > - 2 && x < 0 && y < 1 && y > -1 Input.GetKey(KeyCode.D)
             {
                 if (angle > 70 && angle < 110)
                 {
@@ -432,7 +432,7 @@ public class Player : MonoBehaviour
         {
             dead = true;
             speed = 0;
-            Animator.Play("Dying ");
+            Animator.Play("Dying");
             dieAgain = false;
         }
         

@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
-    public int livesOfZombie = 1;
+    public static int livesOfZombie = 1;
 
-    public Player lives;
+    public GameObject zombie;
 
     public Animator ZombieAnimator;
 
+<<<<<<< HEAD
     public NavMeshAgent zombie;
     bool canFolow = true;
     public Transform playerTransform;
@@ -54,29 +54,33 @@ public class Zombie : MonoBehaviour
 
         }
 
-        
-
-        if (canFolow == true)
-        {
-            ZombieAnimator.Play("RunAnimation");
-            zombie.SetDestination(playerTransform.position);
-        }
-
-    }
-
-    void OnTriggerStay(Collider colider)
+=======
+    // Start is called before the first frame update
+    void Start()
     {
-        if (colider.tag == "Player" && lives.playerLives > 0 && livesOfZombie > 0)
-        {
-            canFolow = false;
-            ZombieAnimator.Play("Punch");
-
-
-        }
-
         
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+      
+        if (livesOfZombie == 0)
+        {
+>>>>>>> parent of 278b0c0 (Week 2)
+        
+            Dead();
+        }
+    }
+
+    void Dead()
+    {
+
+        ZombieAnimator.Play("DieAnimation");
+        
+    }
+
+<<<<<<< HEAD
     private void OnTriggerEnter(Collider colider)
     {
         canPunch = true;
@@ -92,16 +96,25 @@ public class Zombie : MonoBehaviour
             bite.Play();
         }
         
-    }
-    
-    public void EndanimationEvent()
+=======
+
+    void Run()
     {
-        canFolow = true;
+        ZombieAnimator.Play("RunAnimation");
+>>>>>>> parent of 278b0c0 (Week 2)
     }
+
+    void GoToPlayer()
+    {
+
+    }
+<<<<<<< HEAD
 
     public void DamageZombie()
     {
         livesOfZombie = livesOfZombie - 1;
         
     }
+=======
+>>>>>>> parent of 278b0c0 (Week 2)
 }
