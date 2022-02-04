@@ -439,7 +439,15 @@ public class Player : MonoBehaviour
 
     }
 
+    public void DamagePlayer()
+    {
+        playerLives = playerLives - 1;
+    }
 
-   
+
+    public void TakeDamagePlayer()
+    {
+        playerLives = playerLives - 1;
+    }
     
 }

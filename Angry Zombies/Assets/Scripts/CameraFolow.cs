@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class CameraFolow : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Transform CamTransform;
+    public Transform Player;
+
     void Start()
     {
-        
+        CamTransform = Camera.main.transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+        CamTransform.position = new Vector3(Player.position.x, CamTransform.position.y, CamTransform.position.z);
     }
 }

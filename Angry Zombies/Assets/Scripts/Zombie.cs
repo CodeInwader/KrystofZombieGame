@@ -19,24 +19,39 @@ public class Zombie : MonoBehaviour
 
     public Collider zombieColider;
 
-
+    bool canPunch;
 
     public AudioSource bite;
-    
+
+    public GameObject ZombieObject;
+    public GameObject PlayerObject;
+
+    public Player DamagePlayer;
+
+    bool a = true;
    
     // Update is called once per frame
     void Update()
     {
-        if (lives.playerLives < 1)
+
+        
+
+       
+        if (lives.playerLives < 1 )
         {
             canFolow = false;
+            
         }
+
         
          
         if (livesOfZombie < 1)
         {
             ZombieAnimator.Play("DieAnimation");
             canFolow = false;
+           // a = false;
+           // WavesOfZombies.numberOfDeadZombie = WavesOfZombies.numberOfDeadZombie + 1;
+
         }
 
         
@@ -62,16 +77,31 @@ public class Zombie : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter(Collider colider)
+    {
+        canPunch = true;
+    }
     public void PunchEvent()
     {
-        lives.playerLives = lives.playerLives - 1;
-        canFolow = true;
-        bite.Play();
+        float distance = Vector3.Distance(PlayerObject.transform.position, ZombieObject.transform.position);
+
+        if (distance < 2)
+        {
+            DamagePlayer.TakeDamagePlayer();
+            canFolow = true;
+            bite.Play();
+        }
+        
     }
     
     public void EndanimationEvent()
     {
         canFolow = true;
     }
-    
+
+    public void DamageZombie()
+    {
+        livesOfZombie = livesOfZombie - 1;
+        
+    }
 }

@@ -6,6 +6,8 @@ public class RandomSoundPlay : MonoBehaviour
 {
     public float time, waitingTime = 0.2f;
 
+    public List<AudioSource> Audio = new List<AudioSource>();
+
     public AudioSource moah1;
     public AudioSource moah2;
     public AudioSource moah3;
@@ -13,7 +15,10 @@ public class RandomSoundPlay : MonoBehaviour
 
     void Start()
     {
-        
+        Audio.Add(moah1);
+        Audio.Add(moah2);
+        Audio.Add(moah3);
+        Audio.Add(moah4);
     }
 
     
@@ -28,19 +33,20 @@ public class RandomSoundPlay : MonoBehaviour
             switch (a)
             {
                 case 1:
-                    moah1.Play();
+                    Audio[0].Play();
                     break;
 
                 case 2:
-                    moah2.Play();
+                    Audio[1].Play();
+                    
                     break;
 
                 case 3:
-                    moah3.Play();
+                    Audio[2].Play();
                     break;
 
                 case 4:
-                    moah4.Play();
+                    Audio[3].Play();
                     break;
             }
         }
