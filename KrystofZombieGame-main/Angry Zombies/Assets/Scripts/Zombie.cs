@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
-    public int livesOfZombie = 1;
+    public double livesOfZombie = 1;
 
     public Player lives;
 
