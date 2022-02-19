@@ -19,6 +19,8 @@ public class RandomSoundPlay : MonoBehaviour
     
     void Update()
     {
+        
+
         if (time < Time.time)
         {
             time = Time.time + waitingTime;

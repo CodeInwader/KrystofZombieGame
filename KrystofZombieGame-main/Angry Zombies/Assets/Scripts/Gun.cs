@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
  
 
@@ -18,7 +19,7 @@ public class Gun : MonoBehaviour
 
    public Player livesOfPlayer;
 
-    
+    public int numberofdeadzombie = 0;
 
     public ParticleSystem muzzleFlash1;
     public ParticleSystem muzzelFlash2;
@@ -36,6 +37,14 @@ public class Gun : MonoBehaviour
     bool gun2IsSelected = false;
     bool gun3IsSelected = false;
 
+    public Text Ammo, HP, NameOfGun;
+
+    public int AmmoInt;
+    public static int HPInt = 90;
+    public string NameOfGunString;
+    public float reloadTime;
+
+    bool isReloading;
     private void Start()
     {
         gun1IsSelected = true;
@@ -46,13 +55,40 @@ public class Gun : MonoBehaviour
         gunObject1.SetActive(true);
         gunObject2.SetActive(false);
         gunObject3.SetActive(false);
+
+        NameOfGunString = "M4A1 Sopmod Variant";
+        AmmoInt = 60;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
+        if (AmmoInt <= 0)
+        {
+            isReloading = true;
+            StartCoroutine(Reload());
+            return;
+            AmmoInt = 1;
+            isReloading = false;
+        }
+
+        if (isReloading)
+        {
+            return;
+        }
+        */
+
+        NameOfGun.text = NameOfGunString;
+        Ammo.text = AmmoInt.ToString();
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            NameOfGunString = "M4A1 Sopmod Variant";
+            AmmoInt = 60;
+            
             gun1IsSelected = true;
             gun2IsSelected = false;
             gun3IsSelected = false;
@@ -60,9 +96,14 @@ public class Gun : MonoBehaviour
             gunObject1.SetActive(true);
             gunObject2.SetActive(false);
             gunObject3.SetActive(false);
+
+            reloadTime = 3;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            NameOfGunString = "UMP-45 Variant";
+            AmmoInt = 90;
+
             gun1IsSelected = false;
             gun2IsSelected = true;
             gun3IsSelected = false;
@@ -70,9 +111,14 @@ public class Gun : MonoBehaviour
             gunObject1.SetActive(false);
             gunObject2.SetActive(true);
             gunObject3.SetActive(false);
+
+            reloadTime = 3;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            NameOfGunString = "Shotgun Variant";
+            AmmoInt = 1;
+
             gun1IsSelected = false;
             gun2IsSelected = false;
             gun3IsSelected = true;
@@ -80,6 +126,7 @@ public class Gun : MonoBehaviour
             gunObject1.SetActive(false);
             gunObject2.SetActive(false);
             gunObject3.SetActive(true);
+            reloadTime = 5;
         }
        
 
@@ -88,7 +135,7 @@ public class Gun : MonoBehaviour
         {
            
 
-            if (muzzleFlash1.isStopped && time1 < Time.time)
+            if (muzzleFlash1.isStopped/* && time1 < Time.time*/)
             {
                 muzzleFlash1.Play();
             }
@@ -104,7 +151,7 @@ public class Gun : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0) && time2 < Time.time && gun2IsSelected == true)
         {
-            if (muzzelFlash2.isStopped && time2 < Time.time)
+            if (muzzelFlash2.isStopped /*&& time2 < Time.time*/)
             {
                 muzzelFlash2.Play();
             }
@@ -119,7 +166,7 @@ public class Gun : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0) && time3 < Time.time && gun3IsSelected == true)
         {
-            if (muzzelflash3.isStopped && time3 < Time.time)
+            if (muzzelflash3.isStopped/* && time3 < Time.time*/)
             {
                 muzzelflash3.Play();
             }
@@ -150,6 +197,7 @@ public class Gun : MonoBehaviour
 
         shoot1.Play();
 
+        AmmoInt--;
        
 
         if (Physics.Raycast(gun1.transform.position, gun1.transform.forward * -1, out hit /*, range*/))
@@ -170,7 +218,10 @@ public class Gun : MonoBehaviour
             }
 
 
-            
+            if (AmmoInt <= 0)
+            {
+                AmmoInt = 60;
+            }
 
             Instantiate(impactefect, hit.point, Quaternion.LookRotation(hit.normal));
            
@@ -183,6 +234,8 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
 
         shoot2.Play();
+
+        AmmoInt--;
 
         if (Physics.Raycast(gun2.transform.position, gun2.transform.forward, out hit /*, range*/))
         {
@@ -202,6 +255,10 @@ public class Gun : MonoBehaviour
             }
 
 
+            if (AmmoInt <= 0)
+            {
+                AmmoInt = 90;
+            }
 
 
             Instantiate(impactefect, hit.point, Quaternion.LookRotation(hit.normal));
@@ -215,7 +272,9 @@ public class Gun : MonoBehaviour
 
         shoot3.Play();
 
-        if (Physics.Raycast(gun3.transform.position, gun3.transform.forward, out hit /*, range*/))
+        AmmoInt--;
+
+        if (Physics.Raycast(gun3.transform.position, gun3.transform.right * -1, out hit /*, range*/))
         {
             if (hit.transform.tag == "Zombie")
             {
@@ -232,13 +291,20 @@ public class Gun : MonoBehaviour
 
             }
 
-
-
+           
+            if (AmmoInt <= 0)
+            {
+                AmmoInt = 1;
+            }
+            
 
             Instantiate(impactefect, hit.point, Quaternion.LookRotation(hit.normal));
 
         }
     }
     
-    
+    IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(reloadTime);
+    }
 }

@@ -15,7 +15,9 @@ public class Player : MonoBehaviour
 
     bool animationCanPlay;
 
+    public int lives;
 
+    public Collider colider;
 
     public Transform hracTransform;
 
@@ -26,7 +28,7 @@ public class Player : MonoBehaviour
     bool dead = false;
     bool dieAgain = true;
 
-    
+    public Settinghs Settings;
 
     public float rotation;
 
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour
     {
         
         Cursor.visible = false;
+       
       
     }
 

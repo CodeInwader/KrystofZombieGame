@@ -23,27 +23,42 @@ public class Zombie : MonoBehaviour
     public GameObject Player;
     public GameObject Zombieobject;
 
+    public static int numberOfDeadZombie = 0;
 
+    bool againZombieDead = true;
 
     public AudioSource bite;
 
+    public Rigidbody rb;
+
+
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
     {
+        
+       
+
         if (lives.playerLives < 1)
         {
             canFolow = false;
         }
 
 
-        if (livesOfZombie < 1)
+        if (againZombieDead == true && livesOfZombie < 1  )
         {
             ZombieAnimator.Play("DieAnimation");
             canFolow = false;
+            numberOfDeadZombie++;
+            againZombieDead = false;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
         }
 
-
+        Debug.Log(numberOfDeadZombie);
 
         if (canFolow == true)
         {
