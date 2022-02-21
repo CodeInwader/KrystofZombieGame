@@ -58,13 +58,13 @@ public class Zombie : MonoBehaviour
         
       
 
-        if (  lives.playerLives < 1 && playerDeadAgain )
+        if (lives.playerLives < 1 && playerDeadAgain )
         {
             canFolow = false;
 
 
             Debug.Log("sdsd");
-            //sss.EndOfPlay();
+            sss.EndOfPlay();
             playerDeadAgain = false;
         }
 

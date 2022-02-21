@@ -10478,6 +10478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScore: 0
   foreachEnd: 0
+  scoreList: e803000069000000640000005a000000460000003c00000032000000280000001e00000014000000
 --- !u!1001 &826730907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27765,6 +27766,7 @@ MonoBehaviour:
   AmmoInt: 0
   NameOfGunString: 
   reloadTime: 0
+  gun: {fileID: 0}
 --- !u!4 &2094572919
 Transform:
   m_ObjectHideFlags: 0

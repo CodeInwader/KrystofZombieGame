@@ -44,9 +44,9 @@ public class GunTest : MonoBehaviour
     public string NameOfGunString;
     public float reloadTime;
 
-    public Guninfo gun;
+    public Guninfo gunScript;
 
-
+    public List<GameObject> allGuns = new List<GameObject>();
 
     bool isReloading;
     private void Start()
@@ -133,7 +133,7 @@ public class GunTest : MonoBehaviour
 
             if (muzzleFlash1.isStopped/* && time1 < Time.time*/)
             {
-                muzzleFlash1.Play();
+                gunScript.muzzleFlash.Play();
             }
 
             time1 = Time.time + waitingTime1;

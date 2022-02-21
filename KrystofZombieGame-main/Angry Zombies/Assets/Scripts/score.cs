@@ -12,7 +12,7 @@ public class score : MonoBehaviour
     //public InputField nameOfPlayer;
 
 
-    List<int> scoreList = new List<int>();
+    public List<int> scoreList = new List<int>();
 
     // Update is called once per frame
     void Update()
@@ -34,7 +34,7 @@ public class score : MonoBehaviour
             Debug.Log("jsem ve foreach");
             if(element < playerScore && foreachEnd == false)
             {
-                scoreList.Add(playerScore);
+                scoreList.Add(playerScore); 
                 
                 Debug.Log("score added");
                 foreachEnd = true;
@@ -44,23 +44,23 @@ public class score : MonoBehaviour
         }
 
         scoreList.Sort();
-        Debug.Log(scoreList);
+        Debug.Log(scoreList.Count);
 
         if (scoreList.Count > 10)
         {
-            scoreList.Remove(scoreList[10]);
+            scoreList.Remove(scoreList[0]);
         }
 
-        PlayerPrefs.SetInt("firstPlace", scoreList[1]);
-        //PlayerPrefs.SetInt("secondPlace", scoreList[1]);
-        PlayerPrefs.SetInt("thirdlace", scoreList[2]);
-        PlayerPrefs.SetInt("fourthPlace", scoreList[3]);
-        PlayerPrefs.SetInt("fivethPlace", scoreList[4]);
-        PlayerPrefs.SetInt("sixthPlace", scoreList[5]);
-        PlayerPrefs.SetInt("seventhPlace", scoreList[6]);
-        PlayerPrefs.SetInt("eitghthPlace", scoreList[7]);
-        PlayerPrefs.SetInt("ninethPlace", scoreList[8]);
-        PlayerPrefs.SetInt("tenthPlace", scoreList[9]);
+        PlayerPrefs.SetInt("firstPlace", scoreList[9]);
+        PlayerPrefs.SetInt("secondPlace", scoreList[8]);
+        PlayerPrefs.SetInt("thirdlace", scoreList[7]);
+        PlayerPrefs.SetInt("fourthPlace", scoreList[6]);
+        PlayerPrefs.SetInt("fivethPlace", scoreList[5]);
+        PlayerPrefs.SetInt("sixthPlace", scoreList[4]);
+        PlayerPrefs.SetInt("seventhPlace", scoreList[3]);
+        PlayerPrefs.SetInt("eitghthPlace", scoreList[2]);
+        PlayerPrefs.SetInt("ninethPlace", scoreList[1]);
+        PlayerPrefs.SetInt("tenthPlace", scoreList[0]);
 
         /*
         firstPlace.text = scoreList[0].ToString();

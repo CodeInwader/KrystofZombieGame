@@ -31,27 +31,27 @@ public class BoardOfScore : MonoBehaviour
     void Start()
     {
          intfirstPlace = PlayerPrefs.GetInt("firstPlace");
-        intsecondPlace = PlayerPrefs.GetInt("firstPlace");
-        intthirdlace = PlayerPrefs.GetInt("firstPlace");
-        intfourthPlace = PlayerPrefs.GetInt("firstPlace");
-        intfivethPlace = PlayerPrefs.GetInt("firstPlace");
-        intsixthPlace = PlayerPrefs.GetInt("firstPlace");
-        intseventhPlace = PlayerPrefs.GetInt("firstPlace");
-        inteitghthPlace = PlayerPrefs.GetInt("firstPlace");
-        intninethPlace = PlayerPrefs.GetInt("firstPlace");
-        inttenthPlace = PlayerPrefs.GetInt("firstPlace");
+        intsecondPlace = PlayerPrefs.GetInt("secondPlace");
+        intthirdlace = PlayerPrefs.GetInt("thirdlace");
+        intfourthPlace = PlayerPrefs.GetInt("fourthPlace");
+        intfivethPlace = PlayerPrefs.GetInt("fivethPlace");
+        intsixthPlace = PlayerPrefs.GetInt("sixthPlace");
+        intseventhPlace = PlayerPrefs.GetInt("seventhPlace");
+        inteitghthPlace = PlayerPrefs.GetInt("eitghthPlace");
+        intninethPlace = PlayerPrefs.GetInt("ninethPlace");
+        inttenthPlace = PlayerPrefs.GetInt("tenthPlace");
         
 
         firstPlace.text =  intfirstPlace.ToString();
-        secondPlace.text = intfirstPlace.ToString();
-        thirdlace.text = intfirstPlace.ToString();
-        fourthPlace.text = intfirstPlace.ToString();
-        fivethPlace.text = intfirstPlace.ToString();
-        sixthPlace.text = intfirstPlace.ToString();
-        seventhPlace.text = intfirstPlace.ToString();
-        eitghthPlace.text = intfirstPlace.ToString();
-        ninethPlace.text = intfirstPlace.ToString();
-        tenthPlace.text = intfirstPlace.ToString();
+        secondPlace.text = intsecondPlace.ToString();
+        thirdlace.text = intthirdlace.ToString();
+        fourthPlace.text = intfourthPlace.ToString();
+        fivethPlace.text = intfivethPlace.ToString();
+        sixthPlace.text = intsixthPlace.ToString();
+        seventhPlace.text = intseventhPlace.ToString();
+        eitghthPlace.text = inteitghthPlace.ToString();
+        ninethPlace.text = intninethPlace.ToString();
+        tenthPlace.text = inttenthPlace.ToString();
     }
 
     // Update is called once per frame
