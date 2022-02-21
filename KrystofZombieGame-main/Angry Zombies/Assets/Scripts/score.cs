@@ -27,7 +27,7 @@ public class score : MonoBehaviour
 
     public void EndOfPlay()
     {
-        Debug.Log("jsem ve endofplay");
+       
 
         foreach (int element in scoreList)
         {

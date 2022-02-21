@@ -44,6 +44,8 @@ public class Gun : MonoBehaviour
     public string NameOfGunString;
     public float reloadTime;
 
+    public Guninfo gun;
+
     
 
     bool isReloading;
