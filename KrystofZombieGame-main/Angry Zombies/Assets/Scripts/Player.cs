@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         Debug.Log("coliding");
         if (other.tag == "Gun2")
         {
-            Debug.Log("im in");
+            
             secondGunCollected = true;
             other.gameObject.SetActive(false);
         }
@@ -70,16 +70,20 @@ public class Player : MonoBehaviour
         {
             if (playerLives < 90)
             {
+                
                 if (playerLives + 30 > 90)
                 {
                     playerLives = 90;
                 }
-                else if (playerLives + 30 < 90)
+                else if (playerLives + 30 <= 90)
                 {
+                    Debug.Log("pricist zivoty");
                     playerLives = playerLives + 30;
                 }
+
+                other.gameObject.SetActive(false);
             }
-            other.gameObject.SetActive(false);
+           
         }
 
     }
