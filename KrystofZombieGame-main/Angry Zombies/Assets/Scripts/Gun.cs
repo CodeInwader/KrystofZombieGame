@@ -44,6 +44,8 @@ public class Gun : MonoBehaviour
     public string NameOfGunString;
     public float reloadTime;
 
+    
+
     bool isReloading;
     private void Start()
     {
@@ -56,6 +58,8 @@ public class Gun : MonoBehaviour
         gunObject2.SetActive(false);
         gunObject3.SetActive(false);
 
+        
+
         NameOfGunString = "M4A1 Sopmod Variant";
         AmmoInt = 60;
 
@@ -65,21 +69,11 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (AmmoInt <= 0)
-        {
-            isReloading = true;
-            StartCoroutine(Reload());
-            return;
-            AmmoInt = 1;
-            isReloading = false;
-        }
+        //Dropy
 
-        if (isReloading)
-        {
-            return;
-        }
-        */
+       
+
+        //shooting
 
         NameOfGun.text = NameOfGunString;
         Ammo.text = AmmoInt.ToString();
@@ -99,7 +93,7 @@ public class Gun : MonoBehaviour
 
             reloadTime = 3;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && Player.secondGunCollected == true)
         {
             NameOfGunString = "UMP-45 Variant";
             AmmoInt = 90;
@@ -114,7 +108,7 @@ public class Gun : MonoBehaviour
 
             reloadTime = 3;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && Player.thirdguncollected == true)
         {
             NameOfGunString = "Shotgun Variant";
             AmmoInt = 1;
@@ -276,6 +270,7 @@ public class Gun : MonoBehaviour
 
         if (Physics.Raycast(gun3.transform.position, gun3.transform.right * -1, out hit /*, range*/))
         {
+           
             if (hit.transform.tag == "Zombie")
             {
                 Zombie hitZombie = hit.transform.GetComponent<Zombie>();

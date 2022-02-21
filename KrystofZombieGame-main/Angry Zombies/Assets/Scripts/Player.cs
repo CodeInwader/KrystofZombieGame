@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     public Animator Animator;
 
-    public int playerLives = 3;
+    public int playerLives = 90;
 
     bool animationCanPlay;
 
@@ -28,23 +28,69 @@ public class Player : MonoBehaviour
     bool dead = false;
     bool dieAgain = true;
 
-    public Settinghs Settings;
+    public static bool secondGunCollected = false;
+    public static bool thirdguncollected = false;
 
     public float rotation;
 
+    public score sss;
+
+    public Text liveText;
+
     public CharacterController controller;
-    
+
+    public bool playerDeadAgain = true;
     void Start()
     {
         
         Cursor.visible = false;
+
+        Settinghs settings = GetComponent<Settinghs>();
        
-      
+        
+    }
+    //Colecting guns and medkit
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+
+        Debug.Log("coliding");
+        if (other.tag == "Gun2")
+        {
+            Debug.Log("im in");
+            secondGunCollected = true;
+            other.gameObject.SetActive(false);
+        }
+        else if (other.tag == "Gun3")
+        {
+            thirdguncollected = true;
+            other.gameObject.SetActive(false);
+        }else if (other.tag == "Medkit")
+        {
+            if (playerLives < 90)
+            {
+                if (playerLives + 30 > 90)
+                {
+                    playerLives = 90;
+                }
+                else if (playerLives + 30 < 90)
+                {
+                    playerLives = playerLives + 30;
+                }
+            }
+            other.gameObject.SetActive(false);
+        }
+
     }
 
+    
     // Update is called once per frame
     void Update()
     {
+        liveText.text = "HP : " + playerLives.ToString();
+
+
 
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
@@ -58,7 +104,9 @@ public class Player : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
+        
 
+        //Moving, rotating player
         if (dead == false)
         {
 

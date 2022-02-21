@@ -5,54 +5,82 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
-    public GameObject pauseMenu;
+    
 
     public GameObject settingsPanel;
+    
+
+  public static bool GameOrmainMenu = false;
+
+    public void Awake()
+    {
+       
+    }
+
+    private void Start()
+    {
+        
+
+        if (Buttons2.settingsCanPlay)
+        {
+            settingsPanel.SetActive(true);
+        }else
+        {
+            settingsPanel.SetActive(false);
+        }
+        Buttons2.settingsCanPlay = false;
+        
+    }
 
     public  void PlayGame()
     {
         SceneManager.LoadScene("SampleScene");
+        GameOrmainMenu = true;
     }
 
-   public  void Settings()
+   public  void SettingsFromMenu()
     {
-        SceneManager.LoadScene("Settings");
+        settingsPanel.SetActive(true);
+        GameOrmainMenu = false;
     }
 
-   public void Exit()
+ 
+    public void SettingsFromgame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
+        settingsPanel.SetActive(true);
+     
     }
-
-
    
 
 
-    public void Resume()
-    {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 1;
-    }
-
-    public void BackToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-
-    private void Start()
-    {
-        pauseMenu.SetActive(false);
-        settingsPanel.SetActive(false);
-    }
-
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
+   public void BackTogameOrMenu()
+   {
+        if (GameOrmainMenu == false)
         {
-            pauseMenu.SetActive(true);
-            Time.timeScale = 0;
+            settingsPanel.SetActive(false);
         }
+        else if (GameOrmainMenu == true) 
+        {
+            SceneManager.LoadScene("Samplescene");
+            
+        }
+       
+   }
+   
+
+    
+
+    public void ExitToMainMenu()
+    {
+        GameOrmainMenu = false;
+        
+    }
+
+
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
