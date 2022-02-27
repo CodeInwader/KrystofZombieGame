@@ -62,18 +62,7 @@ public class score : MonoBehaviour
         PlayerPrefs.SetInt("ninethPlace", scoreList[1]);
         PlayerPrefs.SetInt("tenthPlace", scoreList[0]);
 
-        /*
-        firstPlace.text = scoreList[0].ToString();
-        secondPlace.text = scoreList[1].ToString();
-        thirdlace.text = scoreList[2].ToString();
-        fourthPlace.text = scoreList[3].ToString();
-        fivethPlace.text = scoreList[4].ToString();
-        sixthPlace.text = scoreList[5].ToString();
-        seventhPlace.text = scoreList[6].ToString();
-        eitghthPlace.text = scoreList[7].ToString();
-        ninethPlace.text = scoreList[8].ToString();
-        tenthPlace.text = scoreList[9].ToString();
-        */
+        
         playerScore = 0;
     }
 }

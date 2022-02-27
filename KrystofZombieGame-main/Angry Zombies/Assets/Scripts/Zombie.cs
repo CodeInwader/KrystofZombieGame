@@ -14,7 +14,8 @@ public class Zombie : MonoBehaviour
 
     public NavMeshAgent zombie;
 
-    bool canFolow = true;
+    public bool canFolow = true;
+
     public Transform playerTransform;
 
     public Collider colider;
@@ -47,16 +48,14 @@ public class Zombie : MonoBehaviour
     public bool playerDeadAgain = true;
 
 
-    private void Start()
-    {
-      
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
         
       
+        
 
         if (lives.playerLives < 1 && playerDeadAgain )
         {
@@ -66,6 +65,8 @@ public class Zombie : MonoBehaviour
             Debug.Log("sdsd");
             sss.EndOfPlay();
             playerDeadAgain = false;
+
+            
         }
 
 
@@ -78,6 +79,8 @@ public class Zombie : MonoBehaviour
             numberOfDeadZombie++;
             againZombieDead = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
+
+            
 
             //pricteni skore
            
@@ -137,7 +140,18 @@ public class Zombie : MonoBehaviour
 
     }
 
-   
+    public void ZombieEndAnimation()
+    {
+        Debug.Log("FungujeTo");
+        Zombie zombie = GetComponent<Zombie>();
+        Zombieobject.SetActive(false);
+        zombie.zombieColider.enabled = true;
+        againZombieDead = true;
+        canFolow = true;
+        rb.constraints = RigidbodyConstraints.None;
+        livesOfZombie = 1;
+    }
+
 
     public void PunchEvent()
     {

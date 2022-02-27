@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BoardOfScore : MonoBehaviour
 {
-    public Text firstPlace;
-    public Text secondPlace;
-    public Text thirdlace;
-    public Text fourthPlace;
-    public Text fivethPlace;
-    public Text sixthPlace;
-    public Text seventhPlace;
-    public Text eitghthPlace;
-    public Text ninethPlace;
-    public Text tenthPlace;
+    public TextMeshProUGUI firstPlace;
+    public TextMeshProUGUI secondPlace;
+    public TextMeshProUGUI thirdlace;
+    public TextMeshProUGUI fourthPlace;
+    public TextMeshProUGUI fivethPlace;
+    public TextMeshProUGUI sixthPlace;
+    public TextMeshProUGUI seventhPlace;
+    public TextMeshProUGUI eitghthPlace;
+    public TextMeshProUGUI ninethPlace;
+    public TextMeshProUGUI tenthPlace;
+
+   
 
     public int intfirstPlace;
     public int intsecondPlace;
