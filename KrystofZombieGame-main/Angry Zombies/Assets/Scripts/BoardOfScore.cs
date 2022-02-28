@@ -17,7 +17,9 @@ public class BoardOfScore : MonoBehaviour
     public TextMeshProUGUI ninethPlace;
     public TextMeshProUGUI tenthPlace;
 
-   
+    public InputField inputfield;
+    public  string Nickname;
+  
 
     public int intfirstPlace;
     public int intsecondPlace;
@@ -43,7 +45,9 @@ public class BoardOfScore : MonoBehaviour
         inteitghthPlace = PlayerPrefs.GetInt("eitghthPlace");
         intninethPlace = PlayerPrefs.GetInt("ninethPlace");
         inttenthPlace = PlayerPrefs.GetInt("tenthPlace");
-        
+
+       
+
 
         firstPlace.text =  intfirstPlace.ToString();
         secondPlace.text = intsecondPlace.ToString();
@@ -57,9 +61,18 @@ public class BoardOfScore : MonoBehaviour
         tenthPlace.text = inttenthPlace.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+   public void NickNameSetter()
     {
-        
+         Nickname = inputfield.text;
+       
+        PlayerPrefs.SetString("Nickname", Nickname);
+
     }
+    
+
+    private void Update()
+    {
+         
+    }
+
 }
