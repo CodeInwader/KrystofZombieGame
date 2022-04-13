@@ -39,11 +39,21 @@ public class Player : MonoBehaviour
 
     public CharacterController controller;
 
+    Vector3 m_Velocity = Vector3.zero;
+    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private float groundCheckRadius = 0.1f;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
+    private bool m_IsGrounded;
+
     public bool playerDeadAgain = true;
     void Start()
     {
+        if (Buttons2.settingsCanPlay) 
+        {
+            Cursor.visible = false;
+        }
         
-        Cursor.visible = false;
 
         Settinghs settings = GetComponent<Settinghs>();
        
@@ -95,7 +105,17 @@ public class Player : MonoBehaviour
         liveText.text = "HP : " + playerLives.ToString();
 
 
+        //Gravitation
+        m_Velocity.y += gravity * Time.deltaTime;
+        m_IsGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
+        if (m_IsGrounded && m_Velocity.y < 0)
+        {
+            m_Velocity.y = -2;
+        }
 
+        controller.Move(m_Velocity * Time.deltaTime);
+
+        //Movement
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 

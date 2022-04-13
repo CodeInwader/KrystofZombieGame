@@ -61,8 +61,6 @@ public class Zombie : MonoBehaviour
         {
             canFolow = false;
 
-
-            Debug.Log("sdsd");
             sss.EndOfPlay();
             playerDeadAgain = false;
 
@@ -70,7 +68,7 @@ public class Zombie : MonoBehaviour
         }
 
 
-        if (againZombieDead == true && livesOfZombie < 1  )
+        if (againZombieDead == true && livesOfZombie < 1)
         {
             
 

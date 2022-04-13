@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[SerializeField]
+public  class DataForBackSettings
+{
+    public static bool backFromMenu;
+    
+}
+
+
+
 public class Waves : MonoBehaviour
 {
 
@@ -13,8 +22,6 @@ public class Waves : MonoBehaviour
 
     public List<GameObject> spawnPoints;
 
-    
-
     public ObjectPooler objectPooler;
 
     public bool wave2CanStartTEST1 = true;
@@ -22,8 +29,8 @@ public class Waves : MonoBehaviour
     public bool wave4CanStartTEST1 = true;
     public bool wave5CanStartTEST1 = true;
 
-    public int currentWave = 1;
-    int zombiesToSpawn;
+    public int currentWave;
+    public static int zombiesToSpawn;
 
     ObjectPooler objectt;
 
@@ -34,14 +41,11 @@ public class Waves : MonoBehaviour
 
     GameObject zombiObject;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-       
+        currentWave = 1;
         Wave();
     }
-
-
 
     void Wave()
     {
@@ -59,6 +63,8 @@ public class Waves : MonoBehaviour
                 zombiObject.transform.position = spawnPoint.transform.position;
                 zombiObject.transform.rotation = spawnPoint.transform.rotation;
                 zombiObject.SetActive(true);
+
+               
             }
         }
 
@@ -76,7 +82,14 @@ public class Waves : MonoBehaviour
             Zombie.numberOfDeadZombie = 0;
             Wave();
         }
+
+        /*
+        if (score.playerScore == 5200)
+        {
+
+        }
+        */
     }
 
-
+    
 }

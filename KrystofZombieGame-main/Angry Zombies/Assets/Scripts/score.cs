@@ -8,16 +8,25 @@ public class score : MonoBehaviour
     public int playerScore = 0;
     public bool foreachEnd = false;
 
-
-    //public InputField nameOfPlayer;
-
-
+    public GameObject winPanel;
+    
     public List<int> scoreList = new List<int>();
 
+
+    private void Start()
+    {
+        winPanel.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
+        if (playerScore == 5800)
+        {
+            winPanel.SetActive(true);
+            EndOfPlay();
         
+            
+        }
     }
 
     public void AddScore()
@@ -31,13 +40,16 @@ public class score : MonoBehaviour
 
         foreach (int element in scoreList)
         {
-            Debug.Log("jsem ve foreach");
+            
             if(element < playerScore && foreachEnd == false)
             {
                 scoreList.Add(playerScore); 
                 
-                Debug.Log("score added");
+              
                 foreachEnd = true;
+            }else if (element == playerScore)
+            {
+                break;
             }
 
            

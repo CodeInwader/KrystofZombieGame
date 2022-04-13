@@ -19,6 +19,8 @@ public class Settinghs : MonoBehaviour
 
     public Dropdown dropdownResolution;
 
+    public GameObject settingsPanel;
+
     public int oneOrZero;
 
     Resolution[] resolutions;
@@ -136,8 +138,8 @@ public class Settinghs : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log(dropdownResolution.value);
-        Debug.Log(PlayerPrefs.GetInt("Resolutionindex"));
+       
     }
+
 
 }

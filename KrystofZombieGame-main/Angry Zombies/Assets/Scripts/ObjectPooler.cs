@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-//[System.Diagnostics.DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler Sharedinstance;
@@ -44,4 +42,6 @@ public class ObjectPooler : MonoBehaviour
         return null;
     }
 
+
+   
 }

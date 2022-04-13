@@ -5,82 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
-    
-
-    public GameObject settingsPanel;
-    
-
-  public static bool GameOrmainMenu = false;
-
-    public void Awake()
-    {
-       
-    }
-
-    private void Start()
-    {
-        
-
-        if (Buttons2.settingsCanPlay)
-        {
-            settingsPanel.SetActive(true);
-        }else
-        {
-            settingsPanel.SetActive(false);
-        }
-        Buttons2.settingsCanPlay = false;
-        
-    }
-
-    public  void PlayGame()
+    public Buttons2 Buttons2;
+   
+   
+    public void PlayGame()
     {
         SceneManager.LoadScene("SampleScene");
-        GameOrmainMenu = true;
+        Buttons2.GameOrmainMenu = true;
     }
 
-   public  void SettingsFromMenu()
+    public void SettingsFromMainMenu()
     {
-        settingsPanel.SetActive(true);
-        GameOrmainMenu = false;
-    }
+        Buttons2.GameOrmainMenu = false;
+        Buttons2.settingsCanPlay = true;
+        SceneManager.LoadScene("sampleScene");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
- 
-    public void SettingsFromgame()
-    {
-        SceneManager.LoadScene("MainMenu");
-        settingsPanel.SetActive(true);
-     
-    }
-   
-
-
-   public void BackTogameOrMenu()
-   {
-        if (GameOrmainMenu == false)
-        {
-            settingsPanel.SetActive(false);
-        }
-        else if (GameOrmainMenu == true) 
-        {
-            SceneManager.LoadScene("Samplescene");
-            
-        }
+        Time.timeScale = 0f;
        
-   }
-   
-
-    
-
-    public void ExitToMainMenu()
-    {
-        GameOrmainMenu = false;
-        
     }
-
-
 
     public void Exit()
     {
         Application.Quit();
     }
+    
 }
