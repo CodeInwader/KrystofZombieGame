@@ -2,40 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class score : MonoBehaviour
 {
     public int playerScore = 0;
     public bool foreachEnd = false;
 
-    public GameObject winPanel;
+    int scoreToPrint;
+    public TextMeshProUGUI scoreText;
+    public GameObject diepanel;
     
     public List<int> scoreList = new List<int>();
 
 
     private void Start()
     {
-        winPanel.SetActive(false);
+        diepanel.SetActive(false);
     }
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (playerScore == 5800)
-        {
-            winPanel.SetActive(true);
-            EndOfPlay();
         
-            
-        }
     }
 
     public void AddScore()
     {
         playerScore = playerScore + 100;
+        scoreToPrint = playerScore;
     }
 
     public void EndOfPlay()
     {
+        
+
+        scoreText.text = "Your score is : " + scoreToPrint.ToString();
+        diepanel.SetActive(true);
+       
        
 
         foreach (int element in scoreList)
@@ -47,7 +50,8 @@ public class score : MonoBehaviour
                 
               
                 foreachEnd = true;
-            }else if (element == playerScore)
+            }
+            else if (element == playerScore)
             {
                 break;
             }
