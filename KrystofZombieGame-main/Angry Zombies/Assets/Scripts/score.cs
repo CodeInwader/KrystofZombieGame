@@ -6,6 +6,17 @@ using TMPro;
 
 public class score : MonoBehaviour
 {
+    public int intfirstPlace;
+    public int intsecondPlace;
+    public int intthirdlace;
+    public int intfourthPlace;
+    public int intfivethPlace;
+    public int intsixthPlace;
+    public int intseventhPlace;
+    public int inteitghthPlace;
+    public int intninethPlace;
+    public int inttenthPlace;
+
     public int playerScore = 0;
     public bool foreachEnd = false;
 
@@ -19,6 +30,28 @@ public class score : MonoBehaviour
     private void Start()
     {
         diepanel.SetActive(false);
+
+        intfirstPlace = PlayerPrefs.GetInt("firstPlace");
+        intsecondPlace = PlayerPrefs.GetInt("secondPlace");
+        intthirdlace = PlayerPrefs.GetInt("thirdlace");
+        intfourthPlace = PlayerPrefs.GetInt("fourthPlace");
+        intfivethPlace = PlayerPrefs.GetInt("fivethPlace");
+        intsixthPlace = PlayerPrefs.GetInt("sixthPlace");
+        intseventhPlace = PlayerPrefs.GetInt("seventhPlace");
+        inteitghthPlace = PlayerPrefs.GetInt("eitghthPlace");
+        intninethPlace = PlayerPrefs.GetInt("ninethPlace");
+        inttenthPlace = PlayerPrefs.GetInt("tenthPlace");
+
+        scoreList.Add(intfirstPlace);
+        scoreList.Add(intsecondPlace);
+        scoreList.Add(intthirdlace);
+        scoreList.Add(intfourthPlace);
+        scoreList.Add(intfivethPlace);
+        scoreList.Add(intsixthPlace);
+        scoreList.Add(intseventhPlace);
+        scoreList.Add(inteitghthPlace);
+        scoreList.Add(intninethPlace);
+        scoreList.Add(inttenthPlace);
     }
     // Update is called once per frame
     private void Update()
@@ -38,7 +71,8 @@ public class score : MonoBehaviour
 
         scoreText.text = "Your score is : " + scoreToPrint.ToString();
         diepanel.SetActive(true);
-       
+        Cursor.visible = true;
+        
        
 
         foreach (int element in scoreList)

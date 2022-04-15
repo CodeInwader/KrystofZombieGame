@@ -137,12 +137,19 @@ public class Gun : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0) && guninformation[selectedGun].time < Time.time && guninformation[selectedGun].gunisSelected == true)
         {
-           
-
-            if (guninformation[selectedGun].muzzelFlash.isStopped/* && time1 < Time.time*/)
+           if(selectedGun == 2)
             {
-                guninformation[selectedGun].muzzelFlash.Play();
+                guninformation[2].muzzelFlash.Emit(100);
             }
+            else
+            {
+                if (guninformation[selectedGun].muzzelFlash.isStopped/* && time1 < Time.time*/)
+                {
+                    guninformation[selectedGun].muzzelFlash.Play();
+                }
+            }
+
+           
 
            guninformation[selectedGun].time = Time.time + guninformation[selectedGun].waitTime;
             Shoot();

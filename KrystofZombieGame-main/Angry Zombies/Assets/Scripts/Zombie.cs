@@ -31,11 +31,13 @@ public class Zombie : MonoBehaviour
     public static bool secondGunIsSpawned = false;
     public static bool thirdGunIsSpawned = false;
 
+    public IEnumerator coroutine;
+
     public GameObject medkit;
 
     public static int numberOfDeadZombie = 0;
 
-    
+    public MedKit medKit;
 
     bool againZombieDead = true;
 
@@ -47,8 +49,8 @@ public class Zombie : MonoBehaviour
 
     public bool playerDeadAgain = true;
 
+    int secondRandomNumber;
 
-    
 
     // Update is called once per frame
     void Update()
@@ -83,14 +85,13 @@ public class Zombie : MonoBehaviour
             //pricteni skore
            
             sss.AddScore();
-            Debug.Log(sss.playerScore);
-
+            
             //moznost spawnu zbrane nebo medkitu000
             int randomNumber = Random.Range(1, 3);
 
             if (randomNumber == 1)
             {
-                int secondRandomNumber = Random.Range(1, 3);
+                 secondRandomNumber = Random.Range(1, 3);
 
                 if (secondRandomNumber == 1)
                 {
@@ -110,7 +111,11 @@ public class Zombie : MonoBehaviour
                 }
                 else if (secondRandomNumber == 2)
                 {
-                    Instantiate(medkit, Zombieobject.transform.position, Zombieobject.transform.rotation);
+
+                   GameObject i = Instantiate(medkit, Zombieobject.transform.position, Zombieobject.transform.rotation);
+                    coroutine = DestroyMedkit(i);
+                    StartCoroutine(coroutine);
+                  
                 }
             }
         }
@@ -123,6 +128,21 @@ public class Zombie : MonoBehaviour
             zombie.SetDestination(playerTransform.position);
         }
 
+    }
+
+
+     IEnumerator DestroyMedkit(GameObject medkit)
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(medkit);
+        Zombieobject.SetActive(false);
+        Zombie zombie = GetComponent<Zombie>();
+
+        zombie.zombieColider.enabled = true;
+        againZombieDead = true;
+        canFolow = true;
+        rb.constraints = RigidbodyConstraints.None;
+        livesOfZombie = 1;
     }
 
     void OnTriggerStay(Collider colider)
@@ -140,14 +160,19 @@ public class Zombie : MonoBehaviour
 
     public void ZombieEndAnimation()
     {
-        Debug.Log("FungujeTo");
-        Zombie zombie = GetComponent<Zombie>();
-        Zombieobject.SetActive(false);
-        zombie.zombieColider.enabled = true;
-        againZombieDead = true;
-        canFolow = true;
-        rb.constraints = RigidbodyConstraints.None;
-        livesOfZombie = 1;
+        if (secondRandomNumber != 2)
+        {
+            Zombie zombie = GetComponent<Zombie>();
+
+            Zombieobject.SetActive(false);
+
+            zombie.zombieColider.enabled = true;
+            againZombieDead = true;
+            canFolow = true;
+            rb.constraints = RigidbodyConstraints.None;
+            livesOfZombie = 1;
+        }
+       
     }
 
 

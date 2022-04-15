@@ -92,8 +92,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -202,6 +200,8 @@ ScriptsOnlyBuild:
     - Class: 82
       Script: {instanceID: 0}
     - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
       Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
@@ -1065,7 +1065,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: f96c66a8fd0f7cdd32078e2e0a35c960
+      Hash: ced0d9ba36a5ef6556e122f4bdd4dfc2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: score
@@ -1122,4 +1122,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/Settings.unity
-  playerPath: /Volumes/External SSD/Angry zombies MAC.app
+  playerPath: /Users/krystofjezdik/Desktop/Angry Zombies MAC.app

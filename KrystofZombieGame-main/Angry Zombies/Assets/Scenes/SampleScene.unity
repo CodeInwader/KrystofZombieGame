@@ -8514,7 +8514,7 @@ RectTransform:
   m_GameObject: {fileID: 624873325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4770826, y: 1.325451, z: 1.325451}
+  m_LocalScale: {x: 1.5765995, y: 1.4147519, z: 1.4147519}
   m_Children: []
   m_Father: {fileID: 855950789}
   m_RootOrder: 2
@@ -8570,8 +8570,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 33
+  m_fontSizeBase: 33
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8606,7 +8606,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -97.216484, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -10807,6 +10807,7 @@ GameObject:
   - component: {fileID: 825659620}
   - component: {fileID: 825659622}
   - component: {fileID: 825659623}
+  - component: {fileID: 825659624}
   m_Layer: 0
   m_Name: ScriptHolder
   m_TagString: Untagged
@@ -10855,11 +10856,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e3a57f366da4c1cbdbda0e24117387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intfirstPlace: 0
+  intsecondPlace: 0
+  intthirdlace: 0
+  intfourthPlace: 0
+  intfivethPlace: 0
+  intsixthPlace: 0
+  intseventhPlace: 0
+  inteitghthPlace: 0
+  intninethPlace: 0
+  inttenthPlace: 0
   playerScore: 0
   foreachEnd: 0
   scoreText: {fileID: 624873327}
   diepanel: {fileID: 855950788}
-  scoreList: e803000069000000640000005a000000460000003c00000032000000280000001e00000014000000
+  scoreList: 
 --- !u!114 &825659623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10880,6 +10891,18 @@ MonoBehaviour:
   dropdownResolution: {fileID: 17908515}
   settingsPanel: {fileID: 1615272657}
   oneOrZero: 0
+--- !u!114 &825659624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825659619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32187d65d6c8747d2b9c82e4deeeaf2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &826730907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12040,7 +12063,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 892437648}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 825659620}
+        m_MethodName: exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &892437648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15353,7 +15387,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6a0ea9dd9c1854e7daa6afa14b538fde, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -31292,6 +31326,11 @@ PrefabInstance:
       objectReference: {fileID: 1401517072}
     - target: {fileID: 3606631942309123351, guid: 7b99727aaed0d4e5d9756fd0694eaa93,
         type: 3}
+      propertyPath: medKit
+      value: 
+      objectReference: {fileID: 825659624}
+    - target: {fileID: 3606631942309123351, guid: 7b99727aaed0d4e5d9756fd0694eaa93,
+        type: 3}
       propertyPath: medkit
       value: 
       objectReference: {fileID: 165310, guid: 4cdcc6c16809ba5439c8798d9bb925f4, type: 3}
@@ -31432,6 +31471,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CollisionDetection
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525059299390500761, guid: 7b99727aaed0d4e5d9756fd0694eaa93,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.1964543
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525059299390500761, guid: 7b99727aaed0d4e5d9756fd0694eaa93,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.036048
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525059299390500766, guid: 7b99727aaed0d4e5d9756fd0694eaa93,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 4657435841349043015, guid: 7b99727aaed0d4e5d9756fd0694eaa93,
         type: 3}
