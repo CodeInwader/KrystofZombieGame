@@ -94,7 +94,7 @@ public class score : MonoBehaviour
         }
 
         scoreList.Sort();
-        Debug.Log(scoreList.Count);
+        
 
         if (scoreList.Count > 10)
         {

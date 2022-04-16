@@ -92,7 +92,7 @@ public class Gun : MonoBehaviour
         //shooting
 
         NameOfGun.text = guninformation[selectedGun].nameOfGun;
-        Ammo.text = guninformation[0].ammoInt.ToString();
+        Ammo.text = guninformation[selectedGun].ammoInt.ToString();
 
         if (selectedGun == 0)
         {
@@ -180,7 +180,7 @@ public class Gun : MonoBehaviour
                     break;
 
                 case 2:
-                    guninformation[selectedGun].ammoInt = 90;
+                    guninformation[selectedGun].ammoInt = 5;
                     break;
             }
         }
@@ -213,7 +213,7 @@ public class Gun : MonoBehaviour
             }
 
             Instantiate(impactefect, hit.point, Quaternion.LookRotation(hit.normal));
-            Debug.Log(hit);
+            
            
         }
         

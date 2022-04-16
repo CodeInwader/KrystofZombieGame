@@ -118,6 +118,8 @@ public class Zombie : MonoBehaviour
                   
                 }
             }
+
+           
         }
 
        
@@ -179,7 +181,7 @@ public class Zombie : MonoBehaviour
     public void PunchEvent()
     {
         float distance = Vector3.Distance(Player.transform.position, Zombieobject.transform.position);
-        Debug.Log(distance);
+        
         if (distance < 2)
         {
             lives.playerLives = lives.playerLives - 30;

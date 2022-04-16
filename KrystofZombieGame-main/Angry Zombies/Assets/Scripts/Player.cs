@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
                 }
                 else if (playerLives + 30 <= 90)
                 {
-                    Debug.Log("pricist zivoty");
+                    
                     playerLives = playerLives + 30;
                 }
 

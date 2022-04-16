@@ -29021,7 +29021,7 @@ MonoBehaviour:
     gunObject: {fileID: 1521867473}
     muzzelFlash: {fileID: 1800224349}
     shootSound: {fileID: 1521867477}
-    ammoInt: 90
+    ammoInt: 60
     nameOfGun: M4A1 Sopmod Variant
     reloadTime: 1
     time: 0
@@ -29031,7 +29031,7 @@ MonoBehaviour:
     gunObject: {fileID: 1192177041}
     muzzelFlash: {fileID: 1800224349}
     shootSound: {fileID: 1192177042}
-    ammoInt: 60
+    ammoInt: 90
     nameOfGun: UMP-45 Variant
     reloadTime: 0.5
     time: 0
