@@ -72,12 +72,12 @@ public class Zombie : MonoBehaviour
 
         if (againZombieDead == true && livesOfZombie < 1)
         {
-            
-
-            ZombieAnimator.Play("DieAnimation");
+            zombie.SetDestination(Zombieobject.transform.position);
             canFolow = false;
+            ZombieAnimator.Play("DieAnimation");
             numberOfDeadZombie++;
             againZombieDead = false;
+       
             rb.constraints = RigidbodyConstraints.FreezeAll;
 
             
