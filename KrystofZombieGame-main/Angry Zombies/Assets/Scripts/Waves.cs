@@ -45,6 +45,8 @@ public class Waves : MonoBehaviour
     {
         currentWave = 1;
         Wave();
+        
+        Zombie.numberOfDeadZombie = 0;
     }
 
     void Wave()
@@ -83,12 +85,7 @@ public class Waves : MonoBehaviour
             Wave();
         }
 
-        /*
-        if (score.playerScore == 5200)
-        {
-
-        }
-        */
+        
     }
 
     
